@@ -21,6 +21,17 @@ Cortex is a context-aware, voice-controlled, and multimodal AI assistant built f
 * AI Engine: Google Generative AI (Gemini Flash)
 * Audio & Vision: `SpeechRecognition`, `pyttsx3`, `Pillow` (ImageGrab)
 
+## Architecture Decision Record (ADR) & Performance Optimization
+
+Building a multimodal agent requires handling heavy data payloads without compromising the user experience.
+
+**Challenge: Multimodal I/O Blocking and High Latency**
+Cortex operates on a complex pipeline: Screen Capture -> Speech-to-Text (STT) -> Gemini LLM API Processing -> Text-to-Speech (TTS). Initially, this synchronous chain caused severe I/O blocking, freezing the application's UI and listening modules for several seconds while waiting for API responses.
+
+**Solution:**
+I restructured the entire backend to be fully asynchronous using **FastAPI** and Python's `asyncio`. 
+* **Impact:** By decoupling file I/O operations and API network calls into non-blocking background tasks, the system now maintains a highly responsive state. The user interface and listening modules remain active and fluid, even during heavy payload transmissions to the Gemini model.
+
 ## Getting Started
 
 ### 1. Prerequisites
