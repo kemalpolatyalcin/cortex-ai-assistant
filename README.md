@@ -44,3 +44,16 @@ Clone the repository:
 ```bash
 git clone [https://github.com/YOUR_USERNAME/cortex-ai-assistant.git](https://github.com/YOUR_USERNAME/cortex-ai-assistant.git)
 cd cortex-ai-assistant
+
+python -m venv venv
+# Activate it:
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+python main.py
+# Or if it's a FastAPI server:
+uvicorn main:app --reload
