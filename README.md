@@ -42,7 +42,7 @@ I restructured the entire backend to be fully asynchronous using **FastAPI** and
 ### 2. Installation
 Clone the repository:
 ```bash
-git clone [https://github.com/YOUR_USERNAME/cortex-ai-assistant.git](https://github.com/YOUR_USERNAME/cortex-ai-assistant.git)
+git clone [https://github.com/kemalpolatyalcin/cortex-ai-assistant.git]
 cd cortex-ai-assistant
 
 python -m venv venv
