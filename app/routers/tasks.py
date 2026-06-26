@@ -19,7 +19,6 @@ def get_chat_session(session_id: str = "default"):
         try:
             model = genai.GenerativeModel(
                 model_name='gemini-flash-latest',
-                tools='google_search_retrieval'
             )
             chat_sessions[session_id] = model.start_chat(history=[])
         except Exception as e:

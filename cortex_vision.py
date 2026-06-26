@@ -52,7 +52,7 @@ def listen_to_user():
     r.dynamic_energy_threshold = True
 
     try:
-        with sr.Microphone(device_index=SELECTED_MIC_ID) as source:
+        with sr.Microphone() as source:
             print(f"\n [MIC {SELECTED_MIC_ID}] ACTIVATED! Adjusting for noise...")
             r.adjust_for_ambient_noise(source, duration=0.8)
             
